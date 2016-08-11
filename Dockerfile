@@ -12,4 +12,5 @@ WORKDIR /home/fluent
 ENV PATH /home/fluent/.gem/ruby/2.2.0/bin:$PATH
 #ADD fluentd.conf /fluentd/etc/fluentd.conf
 ADD fluentd-stdout.conf /fluentd/etc/fluentd-stdout.conf
-CMD fluentd -c /fluentd/etc/fluentd.conf $FLUENTD_OPT
+#CMD fluentd -c /fluentd/etc/fluentd.conf $FLUENTD_OPT
+CMD fluentd -c /fluentd/etc/fluentd-stdout.conf $FLUENTD_OPT
