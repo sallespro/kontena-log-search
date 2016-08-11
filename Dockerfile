@@ -10,4 +10,5 @@ RUN apk --no-cache --update add \
 USER fluent
 WORKDIR /home/fluent
 ENV PATH /home/fluent/.gem/ruby/2.2.0/bin:$PATH
-CMD fluentd -c /fluentd/etc/$FLUENTD_CONF -p /fluentd/plugins $FLUENTD_OPT
+ADD fluentd.conf /fluentd/etc/fluentd.conf
+CMD fluentd -c /fluentd/etc/fluentd.conf $FLUENTD_OPT

@@ -12,7 +12,6 @@ Requires=kontena-server-mongo.service
 Restart=always
 RestartSec=5
 EnvironmentFile=/etc/kontena-log-search.env
-ExecStartPre=/usr/bin/docker pull opens/kontena-log-search:latest
 ExecStartPre=-/usr/bin/docker stop kontena-log-search
 ExecStartPre=-/usr/bin/docker rm kontena-log-search
 ExecStart=/usr/bin/docker run --name=kontena-log-search \

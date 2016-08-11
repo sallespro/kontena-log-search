@@ -2,14 +2,16 @@
 
 kontena-log-search streams logs from Kontena Master MongoDB to Elasticsearch
 
-docker build -t opens/kontena-log-search:latest https://raw.githubusercontent.com/sallespro/kontena-log-search/Dockerfile 
+docker build -t opens/kontena-log-search:latest github.com/sallespro/kontena-log-search.git
+
+
+## Test Run - not as CoreOs Service
+
+docker run --name=kontena-log-search --link kontena-server-mongo:mongodb -e MONGODB_URL=mongodb://mongodb/kontena_server -e ES_HOST=elastic.opens-dev.kontena.local -e ES_HOST=elastic.open-grid.kontena.local -e ES_PORT=9200 -e ES_INDEX=fluentd -e ES_TYPE=fluentd opens/kontena-log-search:latest 
 
 ## Environment
 
-CoreOS Master Server - Service
-+
-
-Elasticsearch:latest
+CoreOS Kontena Master Server + Grid Service of Elasticsearch:latest
 
 ## Local Installation to Kontena Master
 
